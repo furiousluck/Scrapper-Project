@@ -9,6 +9,7 @@ const Dashboard = () => {
   const [ token, setToken ] = useState(JSON.parse(localStorage.getItem("auth")) || "");
   const [ data1, setData ] = useState([]);
   const [check, setCheck] = useState(false);
+  const [readRows, setReadRows] = useState([]);
   const navigate = useNavigate();
 
   const fetchData = async () => {
@@ -27,11 +28,14 @@ const Dashboard = () => {
     }
 
   }
+  const handleRead = (row) => {
+    setReadRows(prevReadRows => [...prevReadRows, row._id]);
+    window.open(row.link, '_blank');
+  };
   const columns = [
     {
         name: 'url',
         selector: row => row.link,
-        cell: row => <a href={row.link} target="_blank" rel="noopener noreferrer">{row.link}</a>,
     },
     {
         name: 'hacker news url',
@@ -50,6 +54,14 @@ const Dashboard = () => {
         name: 'comments ',
         selector: row => row.comments,
     },
+    {
+        name:"Action",
+        cell: row =>(
+          <div>
+            <button onClick={() => handleRead(row)}>Read</button>
+          </div>
+        )
+    }
 ];
   useEffect(() => {
     if(token === ""){
@@ -70,6 +82,13 @@ const Dashboard = () => {
                 columns={columns}
                 data={data1}
                 pagination
+                conditionalRowStyles={[
+                  // Apply a different style to read rows
+                  {
+                    when: (row) => readRows.includes(row._id),
+                    style: { backgroundColor: 'lightgrey' },
+                  },
+                ]}
                 />
     </div>)}
       <Link to="/logout" className="logout-button">Logout</Link>
