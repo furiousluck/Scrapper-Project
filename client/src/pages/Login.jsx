@@ -28,7 +28,7 @@ const Login = () => {
       };
       try {
         const response = await axios.post(
-          "https://scrapper-service-1.onrender.com/api/v1/login",
+          "https://scrapper-project-4afq.vercel.app/api/v1/login",
           formData
         );
         localStorage.setItem('auth', JSON.stringify(response.data.token));

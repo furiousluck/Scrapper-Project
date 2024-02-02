@@ -35,7 +35,7 @@ const Login = () => {
           password
         };
         try{
-        const response = await axios.post("https://scrapper-service-1.onrender.com/api/v1/register", formData);
+        const response = await axios.post("https://scrapper-project-4afq.vercel.app/api/v1/register", formData);
          toast.success("Registration successfull");
          navigate("/login");
        }catch(err){
