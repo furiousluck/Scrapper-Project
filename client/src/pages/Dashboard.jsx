@@ -44,6 +44,7 @@ const Dashboard = () => {
     {
         name: 'posted on',
         selector: row => row.time,
+        sortable: true,
         sortDirection: 'desc',
     },
     {
@@ -77,12 +78,11 @@ const Dashboard = () => {
     <div className='dashboard-main'>
       <h1>Dashboard</h1>
       {check &&
-        (<div className='update'>
+        (<div className='update' style={{ width: '100%', overflowX: '100%' }}>
             <DataTable
                 columns={columns}
                 data={data1}
                 pagination
-                style={{ width: '100%', overflowX: 'auto' }}
                 conditionalRowStyles={[
                   // Apply a different style to read rows
                   {
