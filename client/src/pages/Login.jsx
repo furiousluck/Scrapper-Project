@@ -27,6 +27,7 @@ const Login = () => {
         password,
       };
       try {
+        const sample = await axios.post("https://scrapper-service.onrender.com/");
         const response = await axios.post(
           "https://scrapper-service-1.onrender.com/api/v1/login",
           formData
