@@ -18,7 +18,7 @@ const Dashboard = () => {
       }
     };
     try {
-      const response = await axios.get("http://localhost:5000/articles", axiosConfig);
+      const response = await axios.get("https://scrapper-service.onrender.com/articles", axiosConfig);
       setData(response.data["articles"]); // Assuming the response is an array of objects
       console.log(response.data["articles"]);
       setCheck(true);
