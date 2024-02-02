@@ -1,6 +1,16 @@
 # Scrapper Project
 A simple web application that allows user to scrape data from a website and store it in a database. The application is built using the MERN stack (MongoDB, Express, React, Node.js) and uses JWT for user authentication.
 
+
+# Screenshots
+![image](https://github.com/furiousluck/Scrapper-Project/assets/79402080/ff9a35b8-bcdf-4e79-94a0-020e7b62d82c)
+![image](https://github.com/furiousluck/Scrapper-Project/assets/79402080/94d44c00-3a97-4460-9752-b895803ed431)
+![image](https://github.com/furiousluck/Scrapper-Project/assets/79402080/18d34707-91d2-4b1a-a23e-750248e0a3c7)
+
+
+![image](https://github.com/furiousluck/Scrapper-Project/assets/79402080/5b72df66-d55b-4e18-b211-ccd43211d22a)
+
+
 # Features
 - User Registration: Allows new users to create an account.
 - User Login: Enables users to log in with their credentials.
