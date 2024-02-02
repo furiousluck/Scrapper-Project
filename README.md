@@ -1,18 +1,5 @@
 # Scrapper Project
-
-# A Deep Dive into MERN App with Authentication
-Building upon the foundational principles of MongoDB, Express, React, and Node.js, my project offers a detailed implementation of MERN login register functionality. 
-By integrating JWT authentication MERN stack techniques, I ensure a secure and seamless user experience.
-
-# MERN Login Signup Flow
-My application simplifies the complexity of the MERN login signup process. The auth flow is intuitive, providing clear navigation from signing up to signing into the application. This makes my project an excellent login app example for developers seeking to 
-understand the intricacies of authentication flows.
-
-# Authentication for React App
-The authentication for react app mechanism is implemented with security and efficiency in mind. I utilize JWTs (JSON Web Tokens) to manage sessions and secure user data, providing a reliable and robust auth MERN structure.
-
-# MERN Authentication JWT
-Incorporating mern authentication JWT within this MERN stack application example ensures that the tokens used for user sessions are managed according to the latest security standards. It's a critical feature that underscores the entire authentication process in my MERN application example.
+A simple web application that allows user to scrape data from a website and store it in a database. The application is built using the MERN stack (MongoDB, Express, React, Node.js) and uses JWT for user authentication.
 
 # Features
 - User Registration: Allows new users to create an account.
@@ -30,6 +17,9 @@ Backend:
 - Node.js: As the runtime environment.
 - Express: Web application framework for Node.js.
 - MongoDB: Database to store user credentials and session data.
+
+# Issues
+- The application runs on free tier of Render, so it may take some time to load initially.
 
 # Installation
 1. Clone the repository:
@@ -75,4 +65,10 @@ node app.js
 ```
 cd client
 npm run dev
+```
+
+8. In a new termainal, start the scrapper:
+```
+cd scrapper-backend
+npm start
 ```
