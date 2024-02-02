@@ -9,7 +9,7 @@ const mainRouter = require("./routes/user");
 
 app.use(express.json());
 
-app.use(cors(origin = "https://scrapper-project-nine.vercel.app/"))
+app.use(cors())
 
 app.use("/api/v1", mainRouter);
 
