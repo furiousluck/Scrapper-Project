@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
-const ScrappedData = require("../scrapper-backend/model/data");
 
 const login = async (req, res) => {
   const { email, password } = req.body;
