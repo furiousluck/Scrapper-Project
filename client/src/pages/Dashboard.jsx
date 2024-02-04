@@ -85,10 +85,11 @@ const Dashboard = () => {
         selector: row => row.url,
     },
     {
-        name: 'posted on',
+        name: 'posted on(click me)',
         selector: row => row.time,
         sortable: true,
         sortDirection: 'desc',
+        subHeader: true,
     },
     {
         name: 'upvotes',
