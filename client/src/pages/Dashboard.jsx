@@ -103,8 +103,8 @@ const Dashboard = () => {
         name:"Action",
         cell: row =>(
           <div className='button-read-delete'>
-            <button onClick={() => handleRead(row)}>Read</button>
-            <button onClick={() => handleDelete(row)}>Delete</button>
+            <button onClick={() => handleRead(row)} className="read-button">Read</button>
+            <button onClick={() => handleDelete(row)} className='delete-button'>Delete</button>
           </div>
         )
     }
