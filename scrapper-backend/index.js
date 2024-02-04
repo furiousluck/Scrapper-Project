@@ -5,7 +5,9 @@ const cheerio = require('cheerio');
 require('dotenv').config();
 const mongoose = require('mongoose');
 const Article = require('./model/data');
+const DeletedData = require('./model/deletedData');
 const cors = require('cors');
+var uuid = require('uuid-random');
 app.use(cors(origin="*"));
 
 
@@ -33,6 +35,7 @@ const scrapepage = async (url,j) => {
             const rank = j;
             const link  = $(element).find('.title .titleline a').attr('href');
             console.log(link)
+            const title = $(element).find('.title .titleline a').first().text().replace(/[^\w\s]/gi, '');
             const url = $(element).find('.title .titleline .sitebit .sitestr').text();
             const upvotes = extractCount($(element).next().find('.score').text().trim());
             const time = formatDateTime($(element).next().find('.age').attr('title'));
@@ -41,6 +44,7 @@ const scrapepage = async (url,j) => {
                 rank,
                 link,
                 url,
+                title,
                 upvotes,
                 time,
                 comments
@@ -89,10 +93,30 @@ app.get('/',async(req,res)=>{
     }
 });
 
-app.get('/articles',async(req,res)=>{
+app.get('/:userID/articles',async(req,res)=>{
     try{
-        const articles = await Article.find().sort({rank:1});
+        const user = req.params.userID;
+        const deletedData = await DeletedData.find({user});
+        const deletedID = deletedData.map(data => data.deletedData);
+        console.log(deletedID);
+        const articles = await Article.find({title:{$nin:deletedID}}).sort({rank:1});
         res.json({articles});
+    }
+    catch(err){
+        console.log(err);
+    }
+});
+
+app.post('/articles/:userID/:id',async(req,res)=>{
+    try{
+        const user = req.params.userID;
+        const id = req.params.id;
+        const deletedData = new DeletedData({
+            user,
+            deletedData: id
+        });
+        await deletedData.save();
+        res.json({message: "Link deleted successfully"});
     }
     catch(err){
         console.log(err);

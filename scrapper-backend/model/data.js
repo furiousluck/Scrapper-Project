@@ -4,6 +4,7 @@ var articles = new mongoose.Schema({
     rank: Number,
     link: String,
     url: String,
+    title:String,
     upvotes: String,
     time: String,
     comments: String
