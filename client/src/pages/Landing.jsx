@@ -9,6 +9,7 @@ const Landing = () => {
     <p>Hello and welcome!</p>
     <Link to="/login" className="landing-login-button">Login</Link>
     <Link to="/register" className="landing-register-button">Register</Link>
+    <a href="https://github.com/furiousluck" target="_blank" rel="noopener noreferrer" className="landing-github-link">GitHub Profile</a>
   </div>
   )
 }
