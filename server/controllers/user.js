@@ -16,7 +16,7 @@ const login = async (req, res) => {
 
     if (isMatch) {
       const token = jwt.sign(
-        { id: foundUser._id, name: foundUser.name ,email: foundUser.email},
+        { id: foundUser._id, name: foundUser.name ,email: foundUser.email, room: foundUser._id},
         process.env.JWT_SECRET,
         {
           expiresIn: "30d",
