@@ -15,6 +15,10 @@ app.get("/", (req, res) => {
   res.send("Welcome to the server");
 });
 
+app.get("/online",(req,res)=>{
+  res.status(200).json({status:"online"});
+});
+
 app.use("/api/v1", mainRouter);
 
 const port = process.env.PORT || 3000;
